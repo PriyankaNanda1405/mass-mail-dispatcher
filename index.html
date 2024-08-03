@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mass Mail Dispatcher</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto+Condensed&family=Signika:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">Mass Mail <br>Dispatcher</h1>
+        </header>
+        <div class="upload-section">
+            <input type="file" id="upload" accept=".csv">
+            <label for="upload" class="upload-label">Upload CSV File</label>
+        </div>
+        <div class="mailinfo">
+            <form onsubmit="sendEmail(); return false;">
+                <h2>Compose Your Email</h2>
+                <div class="form-group">
+                    <label for="from">From (Email ID):</label>
+                    <input type="email" id="from" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" placeholder="Email Subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="msg">Body:</label>
+                    <textarea id="msg" cols="30" rows="10" placeholder="Email Body" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send</button>
+            </form>
+        </div>
+        <div class="tables">
+            <div class="valTab">
+                <h2>Valid Emails: <span id="valCount">0</span></h2>
+                <table id="val">
+                    <!-- Valid emails will be populated here -->
+                </table>
+            </div>
+            <div class="invalTab">
+                <h2>Invalid Emails: <span id="invalCount">0</span></h2>
+                <table id="inval">
+                    <!-- Invalid emails will be populated here -->
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+</html>
